@@ -1,0 +1,54 @@
+package automate_test.automateTest;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class BaseClass {
+	
+	WebDriver driver;
+	
+	public void initialize()
+	{
+		 System.setProperty("webdriver.chrome.driver","E:\\New folder\\Assignment_1905\\ChromeDriver\\chromedriver.exe");
+		 WebDriver driver=new ChromeDriver();    
+		 driver.get("https://www.ebay.com/");
+		 driver.findElement(By.xpath("//*[@id=\"gh-ac\"]")).sendKeys("macbook pro");
+		    driver.findElement(By.xpath("//*[@id=\"gh-btn\"]")).click();
+		    driver.findElement(By.xpath("//*[@id=\"item2f2f8cbed3\"]/div/div[2]/a/div/span/span")).click();
+		    driver.findElement(By.xpath("\"//*[@id=\\\"mainContent\\\"]/form/div[2]/div/div[1]/div[2]/ul/li[1]/div/div/div/div[2]/div[3]/div/div/div[2]/div[2]/a")).click();
+		    driver.findElement(By.name("country")).sendKeys("India");
+		    driver.findElement(By.name("firstname")).sendKeys("Subhajit");
+		    driver.findElement(By.name("lastname")).sendKeys("Bose");
+		    driver.findElement(By.name("addressline1")).sendKeys("11knb");
+		    driver.findElement(By.name("city")).sendKeys("kol");
+		    driver.findElement(By.id("stateOrProvince")).sendKeys("West Bengal");
+		    driver.findElement(By.id("postalcode")).sendKeys("700036");
+		    driver.findElement(By.id("email")).sendKeys("sbose99@icloud.com");
+		    driver.findElement(By.id("emailconfirm")).sendKeys("sbose99@icloud.com");
+		    driver.findElement(By.id("phoneNumber")).sendKeys("7980926556");
+		    driver.findElement(By.xpath("//*[@id=\"mainContent\"]/div[3]/div/div[1]/section[2]/div[2]/div/div/div/div[2]/div[1]/form/div/div/div/button")).click();
+		    driver.findElement(By.xpath("//*[@id=\"selectable-render-summary4\"]")).click();
+		    driver.findElement(By.xpath("//*[@id=\"mainContent\"]/div[2]/div/div/div/div[3]/div/button[2]")).click();
+		    driver.findElement(By.xpath("//*[@id=\"google-pay-button\"]/div/button")).click();
+	}
+
+}
+
+
+
+package automate_test.automateTest;
+
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class ExecuteTest extends BaseClass{
+	
+	
+	@BeforeMethod
+	public void init()
+	{
+		initialize();
+	}
+	
+	
